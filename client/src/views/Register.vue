@@ -2,7 +2,7 @@
     <v-main>
         <v-card
             :loading="loading"
-            max-width="400"
+            max-width="450"
             class="mx-auto my-12"
             shaped
             elevation="10"
@@ -18,7 +18,7 @@
             </template>
             <v-flex
                 column
-                class="px-6 py-6"
+                class="px-10 py-6"
             >
                 <v-img
                     alt="Vuetify Logo"
@@ -48,7 +48,7 @@
                     >
                     Register
                 </v-btn>
-                <p class="caption text-center mt-4 grey--text">You already have an Account?</p>
+                <p class="caption text-center mt-4 grey--text">You already have an Account? <router-link :to="{name: 'Login'}">Login</router-link></p>
             </v-flex>
         </v-card>
     </v-main>

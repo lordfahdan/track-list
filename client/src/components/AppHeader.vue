@@ -4,7 +4,6 @@
       class="grey darken-3"
     >
       <div class="d-flex align-center">
-        <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
         <v-img
           alt="Vuetify Logo"
           class="shrink mr-2"
