@@ -28,11 +28,11 @@
                     transition="scale-transition"
                     width="80"
                 />
-                <h2>Register</h2>
+                <h2>Login</h2>
                 <v-text-field
                     v-model="email"
-                    label="Email"
                     name="email"
+                    label="Email"
                 ></v-text-field>
                 <v-text-field
                     v-model="password"
@@ -44,11 +44,11 @@
                     block
                     tile
                     class="py-6"
-                    @click="register"
+                    @click="login"
                     >
-                    Register
+                    Login
                 </v-btn>
-                <p class="caption text-center mt-4 grey--text">You already have an Account?</p>
+                <p class="caption text-center mt-4 grey--text">Create an Account?</p>
             </v-flex>
         </v-card>
     </v-main>
@@ -64,9 +64,9 @@ export default {
         loading: false,
     }),
     methods: {
-        register(){
+        login(){
             this.loading = true
-            ApiServices.register({
+            ApiServices.login({
                 email: this.email,
                 password: this.password
             })
@@ -85,7 +85,4 @@ export default {
 </script>
 
 <style scoped>
-.error {
-    color: red;
-}
 </style>

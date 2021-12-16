@@ -18,6 +18,11 @@ const routes = [
     name: 'Register',
     component: load('views/Register')
   },
+  {
+    path: '/login',
+    name: 'Login',
+    component: load('views/Login')
+  },
 ]
 
 const router = new VueRouter({
