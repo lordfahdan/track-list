@@ -1,38 +1,31 @@
 <template>
-    <v-app-bar
-      app
+  <div style="position: relative; z-index: 3">
+    <v-toolbar
       class="grey darken-3"
+      fixed
     >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-        <h2 class="font-weight-bold white--text">Track List</h2>
-      </div>
+      <v-toolbar-title class="font-weight-bold">Track List</v-toolbar-title>
 
       <v-spacer></v-spacer>
-
-      <v-card
-        class="d-flex flex-row transparent"
-        flat
-      >
-        <v-card
+      
+      <v-toolbar-items>
+        <v-btn
+          elevation="0"
           v-for="(route, index) in $router.options.routes"
           :key="index"
-          class="pa-2 mx-2 transparent"
           :to="route.path"
+          class="transparent m-0"
           exact-active-class="font-weight-bold blue--text"
-          flat
-          hover
-        >{{ route.name }}
-        </v-card>
-      </v-card>
-    </v-app-bar>
+          >
+          {{ route.name }}
+        </v-btn>
+      </v-toolbar-items>
+
+      <v-btn icon>
+        <v-icon>mdi-export</v-icon>
+      </v-btn>
+    </v-toolbar>
+  </div>
 </template>
 
 <script>
@@ -41,7 +34,7 @@ export default {
 </script>
 
 <style scoped>
-.v-card--link:focus:before {
+.v-btn:focus:before {
     opacity: 0;
 }
 </style>

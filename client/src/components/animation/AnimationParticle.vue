@@ -1,6 +1,6 @@
 <template>
   <div class="container-particle">
-    <div class="circle-container" v-for="particle in 200" :key="'particle' + particle">
+    <div class="circle-container" v-for="particle in 100" :key="'particle' + particle">
         <div class="circle"></div>
     </div>
   </div>
