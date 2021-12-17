@@ -29,25 +29,30 @@
                     width="80"
                 />
                 <h2>Login</h2>
-                <v-text-field
-                    v-model="email"
-                    name="email"
-                    label="Email"
-                ></v-text-field>
-                <v-text-field
-                    v-model="password"
-                    label="Password"
-                    type="password"
-                ></v-text-field>
-                <v-btn
-                    color="success"
-                    block
-                    tile
-                    class="py-6"
-                    @click="login"
-                    >
-                    Login
-                </v-btn>
+                <form
+                    autocomplete="off"
+                >
+                    <v-text-field
+                        v-model="email"
+                        name="email"
+                        label="Email"
+                    ></v-text-field>
+                    <v-text-field
+                        v-model="password"
+                        label="Password"
+                        type="password"
+                        autocomplete="new-password"
+                    ></v-text-field>
+                    <v-btn
+                        color="success"
+                        block
+                        tile
+                        class="py-6"
+                        @click="login"
+                        >
+                        Login
+                    </v-btn>
+                </form>
                 <p class="caption text-center mt-4 grey--text">Create an Account? <router-link :to="{name: 'Register'}">Register</router-link></p>
             </v-flex>
         </v-card>
