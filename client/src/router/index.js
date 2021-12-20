@@ -9,19 +9,30 @@ function load (component) {
 
 const routes = [
   {
+    path: '*',
+    redirect: '/'
+  },
+  {
     path: '/',
     name: 'Home',
-    component: load('views/Home')
+    component: load('views/Home'),
   },
   {
     path: '/register',
     name: 'Register',
-    component: load('views/Register')
+    component: load('views/Register'),
+    meta: { requiresAuth: true }
   },
   {
     path: '/login',
     name: 'Login',
-    component: load('views/Login')
+    component: load('views/Login'),
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/songs',
+    name: 'Songs',
+    component: load('views/Songs'),
   },
 ]
 

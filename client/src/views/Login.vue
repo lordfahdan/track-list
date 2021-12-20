@@ -29,9 +29,7 @@
                     width="80"
                 />
                 <h2>Login</h2>
-                <form
-                    autocomplete="off"
-                >
+                <form>
                     <v-text-field
                         v-model="email"
                         name="email"
@@ -77,7 +75,9 @@ export default {
             })
             .then((result) => {
                 const data = result.data
-                console.log(data)
+                
+                this.$store.dispatch('setToken', data.token)
+                this.$store.dispatch('setUser', data.user)
             }).catch((err) => {
                 this.error = err.response.data.error
             })
