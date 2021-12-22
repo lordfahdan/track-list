@@ -1,61 +1,41 @@
 <template>
-    <v-main>
-        <v-card
-            :loading="loading"
-            max-width="450"
-            class="mx-auto my-12"
-            shaped
-            elevation="10"
-            dark
-            style="position: relative; z-index: 2; border: 3px solid #ffffff; background-color: rgba(255, 255, 255, 0.1)"
-        >
-            <template slot="progress">
-                <v-progress-linear
-                    color="blue darken-2"
-                    height="6"
-                    indeterminate
-                ></v-progress-linear>
-            </template>
-            <v-flex
-                column
-                class="px-10 py-6"
-            >
-                <v-img
-                    alt="Vuetify Logo"
-                    class="shrink mx-auto mb-10"
-                    contain
-                    src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-                    transition="scale-transition"
-                    width="80"
-                />
-                <h2>Register</h2>
-                <v-text-field
-                    v-model="email"
-                    label="Email"
-                    name="email"
-                ></v-text-field>
-                <v-text-field
-                    v-model="password"
-                    label="Password"
-                    type="password"
-                ></v-text-field>
-                <v-btn
-                    color="success"
-                    block
-                    tile
-                    class="py-6"
-                    @click="register"
+    <v-layout mt-6>
+        <v-flex xs6 offset-xs3>
+            <Panel title="Register">
+                <div class="px-4 py-2">
+                    <form 
+                        name="tab-tracker-form"
                     >
-                    Register
-                </v-btn>
-                <p class="caption text-center mt-4 grey--text">You already have an Account? <router-link :to="{name: 'Login'}">Login</router-link></p>
-            </v-flex>
-        </v-card>
-    </v-main>
+                        <v-text-field
+                            label="Email"
+                            v-model="email"
+                        ></v-text-field>
+                        <br>
+                        <v-text-field
+                            label="Password"
+                            v-model="password"
+                            type="password"
+                        ></v-text-field>
+                    </form>
+                    <br>
+                    <div class="error" v-html="error"></div>
+                    <br>
+                    <v-btn
+                        dark
+                        class="cyan"
+                        @click="register"
+                    >
+
+                    </v-btn>
+                </div>
+            </Panel>
+        </v-flex>
+    </v-layout>
 </template>
 
 <script>
-import ApiServices from '@/services/ApiServices'
+import ApiAuthenticationServices from '@/services/ApiAuthenticationServices'
+import Panel from '@/components/Panel'
 export default {
     data: () => ({
         email: '',
@@ -66,7 +46,7 @@ export default {
     methods: {
         register(){
             this.loading = true
-            ApiServices.register({
+            ApiAuthenticationServices.register({
                 email: this.email,
                 password: this.password
             })
@@ -82,6 +62,9 @@ export default {
                 this.loading = false
             })
         }
+    },
+    components: {
+        Panel
     }
 }
 </script>

@@ -34,6 +34,16 @@ const routes = [
     name: 'Songs',
     component: load('views/Songs'),
   },
+  {
+    path: '/songs/create',
+    name: 'Songs-Create',
+    component: load('views/CreateSong'),
+  },
+  {
+    path: '/songs/:songId',
+    name: 'Song',
+    component: load('views/ViewSong'),
+  },
 ]
 
 const router = new VueRouter({

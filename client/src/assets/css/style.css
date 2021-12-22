@@ -3064,3 +3064,7 @@
     -webkit-animation-delay: 3985ms;
             animation-delay: 3985ms;
   }
+
+  .danger-alert {
+    color: red;
+  }
